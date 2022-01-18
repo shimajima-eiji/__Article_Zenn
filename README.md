@@ -5,3 +5,6 @@
 # 使い方
 - [【まとめ】QiitaからZennに乗り換える時に知っておくべき知識](https://zenn.dev/nomuraya/articles/zenn-startup)
 - ['npx zenn new:article'の後にやること](https://zenn.dev/nomuraya/articles/try-my-awesome-article)
+
+# 運用
+- 理由がない限り、webpを使用する。
