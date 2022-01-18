@@ -200,6 +200,11 @@ VSCodeのZennEditorは内部的に http://localhost:8000/articles/my-awesome-art
 
 ある程度記事をまとめられそうなら本にしていった方がいいかもしれません。
 
+## アコーディオン内のhタグが目次に反映されない
+![アコーディオン内のhタグが目次に反映されない](https://shimajima-eiji.github.io/__Backup_Images/Zenn/articles/zenn-startup/アコーディオンのhタグは目次欄に表示されない.webp)
+*更新前ながら、確認には問題なし*
+
+たとえば、この項目でも複数のhタグを入れていますが、目次欄にはありません。
 :::
 
 :::details 本の書き方
