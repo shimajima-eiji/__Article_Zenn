@@ -4,4 +4,4 @@
 
 # 使い方
 - [【まとめ】QiitaからZennに乗り換える時に知っておくべき知識](https://zenn.dev/nomuraya/articles/zenn-startup)
-- ['npx zenn new:article'の後にやること](https://zenn.dev/nomuraya/articles/my-awesome-article)
+- ['npx zenn new:article'の後にやること](https://zenn.dev/nomuraya/articles/try-my-awesome-article)
