@@ -101,7 +101,7 @@ Zennを使わなくなったかもしれない来年の自分、を想定して�
 困ったらこれを見れば良さそうです。
 :::
 
-:::details 記事の書き方
+:::details 記事の書き方（仕様は後述）
 `npx zenn new:article`の結果。
 
 `--slug (my-awesome-article)`をつけると、記事URLを指定できますが、タイトルには反映されませんでした。
@@ -179,9 +179,26 @@ VSCodeのZennEditorは内部的に http://localhost:8000/articles/my-awesome-art
 
 [PageSpeed Insights](https://pagespeed.web.dev/)とかで怒られるのは許容しましょう。
 
+### Githubのwebpを使う方法
+ホスティングしなくても使えます。(Raw)
+ホスティングしていても使えます。(要Github Pages設定)
+
+- https://raw.githubusercontent.com/shimajima-eiji/__Backup_Images/main/Zenn/articles/zenn-startup/articles以下にディレクトリを置けない.webp
+- https://shimajima-eiji.github.io/__Backup_Images/Zenn/articles/zenn-startup/articles以下にディレクトリを置けない.webp
+
+おすすめは前者です。
+
 ### 要望
 [GitHubリポジトリ連携で画像をアップロードする方法（公式）](https://zenn.dev/zenn/articles/deploy-github-images) / （[ローカルでも見れる](http://localhost:8000/guide/deploy-github-images)）を見ると、webpには対応していないようです。
 [webpに移行したい者として](https://github.com/shimajima-eiji/__Backup_Images)現状はGithubPagesで.webpをホスティングして呼び出す方法を想定しています。
+:::
+
+:::details 記事の書き方（操作は先述）
+## articles以下にディレクトリを作ることはできない
+![articles/2022にアクセスできない](https://shimajima-eiji.github.io/__Backup_Images/Zenn/articles/zenn-startup/articles以下にディレクトリを置けない.webp)
+*https://zenn.dev/nomuraya/articles/2022/other-directory につなげない*
+
+ある程度記事をまとめられそうなら本にしていった方がいいかもしれません。
 
 :::
 
