@@ -2,7 +2,7 @@
 title: "結局ZennかQiitaかnoteか個人ブログをどうやって使い分けると良いのか"
 emoji: "🤔"
 type: "idea"
-topics: ["ポエム", "ポエム駆動開発", "ノウハウ", "ナレッジ", "初心者向け"]
+topics: ["ポエム", "考察", "ノウハウ", "初心者", "初心者向け"]
 published: true
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "【まとめ】QiitaからZennに乗り換える時に知っておくべき知識"
 emoji: "🎉"
-type: "tech"
-topics: ["Qiita", "初心者", "まとめ"]
+type: "idea"
+topics: ["Qiita", "Zenn", "初心者", "ポエム", "考察"]
 published: true
 ---
 

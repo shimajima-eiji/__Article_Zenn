@@ -2,7 +2,7 @@
 title: "１ミリも知らないでzennに記事を投稿するまでのリアルな作業"
 emoji: "🎉"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["初心者向け", "Qiita", "note", "雑考", "ポエム"]
+topics: ["初心者向け", "Qiita", "note", "体験談", "ポエム"]
 published: true
 ---
 
