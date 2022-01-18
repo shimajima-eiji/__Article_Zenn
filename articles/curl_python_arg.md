@@ -2,7 +2,7 @@
 title: "`curl (python) | python`で引数を渡したい"
 emoji: "😄"
 type: "tech"
-topics: ["Qiita", "初心者", "まとめ"]
+topics: ["コード有り", "curl", "shell", "shellscript", "python"]
 published: true
 ---
 
