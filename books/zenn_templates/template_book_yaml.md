@@ -1,8 +1,9 @@
 ---
-title: "テンプレート:本.yamlのFrontMatter (主にsummary)"
+title: "【ずっと途中送信】テンプレート:本.yamlのFrontMatter (主にsummary)"
 ---
 # 最終更新: 2022.01.21.a
 思いついたら追記してます
+おそらく最終版とかFixはできないんじゃないでしょうか。
 
 ## 無料本のテンプレート
 ```
