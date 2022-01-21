@@ -14,12 +14,30 @@ title: "【途中投稿】zennの記事や本、スクラップの仕様を紐�
 
 本記事は、レコメンドをもらってバンバン稼ごうという発想の元に書いています。
 
-# 結論
+# 手っ取り早い方法
 間違えて同業者に見られたり、アフィリエイター志望の方にタダで渡せる情報ではないので、手法について知りたい方は有料で公開することにしました。
 
 https://zenn.dev/nomuraya/books/private_for_beginner
 
 今回はこういった「アフィリエイターの手口（またの名を裏技）」を使わず、「プログラマー的な視点」での攻略を目指します。
+
+## Read Next
+記事の最後に表示されるコレです。
+
+![](https://raw.githubusercontent.com/shimajima-eiji/__Backup_Images/main/Zenn/book/for_zenn_beginner/read_next.webp)
+
+一番操作したいのはこれで、GithubWiki的に言うと自分がおすすめ記事を_Footer.mdに書いて誘導する、という事を記事毎にやりたいわけです。
+
+運用対処としては、以下のようなフォーマットを検討します。
+
+```
+# おすすめの記事
+記事URL
+記事URL
+```
+
+面倒ですが、手動で書いていく必要があります。
+そうなると、Read Next欄が邪魔になりますが、こればかりはどうにもならないです。
 
 ## Trending
 https://zenn.dev/
