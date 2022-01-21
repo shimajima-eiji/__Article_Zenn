@@ -1,10 +1,15 @@
 ---
 title: "Zennの情報はどこを見れば良いのか？"
-emoji: "🪧"
-type: "idea"
-topics: ["初心者", "Zenn", "初心者向け", "ポエム", "トピック"]
-published: true
 ---
+:::message
+この記事は「自分用の学習ノート」です。
+コメントもマサカリも歓迎しますが、切れ味のよい内容はご容赦ください。
+:::
+
+:::message
+この記事は元記事を移行しています
+https://zenn.dev/nomuraya/articles/zenn_information
+:::
 
 # 記事タイトルへの結論
 使うのに必要な情報は`npx zenn preview`で表示される`http://localhost:8000`でいいと思います。
