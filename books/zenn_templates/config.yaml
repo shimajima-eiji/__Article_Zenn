@@ -9,5 +9,6 @@ published: true
 price: 0
 chapters:
   - template_book_yaml
+  - template_book_md
   - template_scrap
-
+  - explanation_book_md
