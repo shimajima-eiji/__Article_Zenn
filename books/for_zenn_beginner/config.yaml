@@ -13,7 +13,7 @@ price: 0 # 有料の場合200〜5000
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - changelog_zenn
-  - howtouse-zenn
+  - howtouse_zenn
   - zenn_information
   - zenn_userpage
   - recommend_book

@@ -8,6 +8,6 @@ topics: ["テンプレート", "自分用"]
 published: true
 price: 0
 chapters:
-  - template_book
+  - template_book_yaml
   - template_scrap
 
