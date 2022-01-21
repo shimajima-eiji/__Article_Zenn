@@ -1,9 +1,13 @@
-title: ""
-summary: ""
-topics: []
-published: false
-price: 0 # 有料の場合200〜5000
-# 本に含めるチャプターを順番に並べましょう
+title: "【🔰コメント募集】Zennで使いたいテンプレート"
+summary: |-
+  自分用ですが、需要がある人に使ってもらえれば、と思って公開してます。
+  良い方法（フォーマット）や使用感のフィードバック、あるいはカスタマイズ例をいただけると喜びます。
+  - 💴この本は有料にしません。ご安心ください。
+  - 🪧この本の記事へのコメント時は、どの記事へのコメントか明示してもらえると助かります。
+topics: ["テンプレート", "自分用"]
+published: true
+price: 0
 chapters:
-  - example1
-  - example2
+  - template_book
+  - template_scrap
+
