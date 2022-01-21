@@ -15,4 +15,5 @@ chapters:
   - template_book_yaml
   - template_book_md
   - template_scrap
+  - changelog_zenn
   - explanation_book_md
