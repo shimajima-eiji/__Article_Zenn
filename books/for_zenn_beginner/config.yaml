@@ -1,0 +1,20 @@
+title: "これからZennを始める人、始めようと考えている人へ"
+summary: |-
+  【この本は、筆者がZennをはじめて3日で作ったものなので、まだまだ甘い部分が多く散見されるかと思います。】
+  まだZennはやってないけど、Qiitaや個人ブログに投稿してるよという方が対象です。
+  元々記事に書いている内容なので、一部重複があります。
+  この本は有料にするつもりはありませんが、ファイル管理のためアドレスが変わる可能性があるので、ブックマークの際はご注意ください。
+
+  この本は、以下内容に共感し作成しています。
+  ref: https://github.com/zenn-dev/zenn-community/issues/71
+topics: ["Zenn", "初心者", "初心者向け", "自習ノート", "メモ"]
+published: true
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - CHANGELOG_zenn
+  - howtouse-zenn
+  - zenn_information
+  - recommend_book
+  - read_zenn-teams
+  - emoji_cheatsheet
