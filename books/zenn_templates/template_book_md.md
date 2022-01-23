@@ -9,14 +9,14 @@ title: "【ずっと途中送信】テンプレート:本.mdのFrontMatterと本
 ---
 title: "【途中送信 or 🔰コメント募集】"
 ---
-<!-- テンプレートバージョン: 2022.01.22.a.book_md -->
+<!-- テンプレートバージョン: 2022.01.24.b.book_md -->
 
 :::message alert
 ## ❗本記事の内容は、最終更新時点での情報です。
 あなたがご覧になっているタイミングでは、記事の内容が古い可能性があります。
 
 ## ❗ブックマークは、[表紙ページ](https://zenn.dev/nomuraya/books/(zenn_templates¥))にお願いします。
-本の品質向上に伴い、記事のページ名を変更する可能性があります。
+本の品質向上に伴い、記事のページ名を変更する可能性があります。リンク切れの可能性にご注意ください。
 :::
 
 :::message
@@ -31,7 +31,8 @@ title: "【途中送信 or 🔰コメント募集】"
 
 ## この次のおすすめ記事
 
-## 個別コメントフォーム
+## 非公開コメントフォーム(GoogleForm)
+https://docs.google.com/forms/d/e/1FAIpQLSe6rZxqJpPOvuN5mHG0t0523ANjrh7reiC60YMXqlGWwTYHAQ/viewform
 
 ## あなたにとって、この記事がお役に立てたなら、💓いいねをいただけると私はとても嬉しいです。
 :::message
