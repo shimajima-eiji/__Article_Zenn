@@ -13,7 +13,7 @@ published: true
 :::
 
 :::message
-### コメントについて：この記事は「教材」です。
+### コメントについて：この記事は「教材予定」です。
 将来的に本に移行する予定ですが、この記事を「いいね！」しておいてもらえると、本に移行した後でも本文を読むことができるようにしておきます。
 また、本に移行した後もコメントができるようにしておきます。
 :::
@@ -35,14 +35,27 @@ published: true
 
 に絞ってやります。
 
-## LINE側の設定
-先に用語を書いておきます。
-
+## 後で探し直すものまとめ
+### LINE Developerの用語
 |用語|意訳、またはイメージ|
 |---|---|
 |プロバイダー|ディレクトリのようなもの。Botをあまり作らないならなるべくまとめてしまった方が見通しが良い（個人差あり）|
 |チャネル|プロバイダーがディレクトリならファイルのようなもの。実態はLINEアカウントのようなもの。|
 
+### URL
+|概要|アドレス|作り方|
+|---|---|---|
+|LINEBotアカウントを作る|https://developers.line.biz/console|LINE Developers。新しいチャネルはここで作る。また、ログインはLINEアカウントを使う|
+|LINEのMessagingAPI設定|https://developers.line.biz/console/channel/チャネルID/messaging-api|チャネルアクセストークンを発行したり、WebhookURLを設定する|
+|LINEBotのグループ設定|https://manager.line.biz/account/(BOTのアカウントID)/setting|グループに使えるようにする設定がある場所|
+|GASプロジェクトの新規作成|https://script.google.com/home|Googleアカウントは作っている想定。ログインできない場合はパスワードを再発行したり、アカウントを作り直すかする。|
+|(GAS)LINEBot WebhookURL|https://script.google.com/macros/s/ここに適当なID/exec|GASプロジェクトをデプロイする|
+|Githubリポジトリ|https://github.com/shimajima-eiji/--GAS_v5_LINEdebug|今回使うリポジトリのルート|
+
+注意するべきは上記の通りです。
+細かいのはそれぞれの章で書いています。
+
+## LINE側の設定
 1. まずはLINE Developersにログインしましょう。
 1. 初めての方はプロバイダーを設定しましょう。
   1. https://developers.line.biz/console/ のプロバイダーの近くに作成ボタンがあります。色々言われるままに設定しましょう。
