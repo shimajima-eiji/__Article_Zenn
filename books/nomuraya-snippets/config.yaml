@@ -12,3 +12,5 @@ price: 0 # 有料の場合200〜5000
 chapters:
   - changelog_zenn
   - shell_translate
+  - gas2readme_md
+  - translate_text
