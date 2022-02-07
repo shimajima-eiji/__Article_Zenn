@@ -36,6 +36,12 @@ https://github.com/shimajima-eiji/__Github-Operation/wiki(.git)
 ## to(リポジトリ)
 https://github.com/shimajima-eiji/____Github-Operation_wiki
 
+# 活用例
+正直、リポジトリを移行したい時ぐらいしか思いつきません…。
+Githubの話ですが、リポジトリ名を変えれば済むので、本当になんでしょうね？
+
+無理やり捻り出したのが、wikiのコントリビューションをGithubに反映させるぐらいしかなかったです。
+
 ## あなたにとって、この記事がお役に立てたなら、💓いいねをいただけると私はとても嬉しいです。
 :::message
 もし良ければ、この本を読み終わった後にでもコーヒー一杯ぐらいを奢っていただけませんか？
