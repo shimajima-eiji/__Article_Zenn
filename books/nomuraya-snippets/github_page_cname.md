@@ -65,6 +65,8 @@ https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pag
 AとかAAAAとかに名前がないですが、何も書かないとApexドメインを指定するのと同じです。
 暗黙的に`nomuraya.tk`が入っているという認識ですね。
 
+![設定例](https://raw.githubusercontent.com/shimajima-eiji/__Backup_Images/main/Zenn/book/nomuraya-snippets/github_page_cname/DNS%E3%82%B5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E5%81%B4%E8%A8%AD%E5%AE%9A.webp)
+
 ## この記事で出てきた用語など解説について
 ご覧の通り、ドメインやネットワークの知識があることを前提に書いていますので、設定できたからOKではなく、分からない用語やアーキテクチャーについてはしっかり学んで自身に腹落ちさせましょう。
 より深く学びたい場合は参考サイトを探してみたり、受講生の方は質問にきてもらってOKです。
