@@ -17,4 +17,6 @@ chapters:
   - mirror_repository
   - github_page_cname
   - wordpress_static
+  - zsh_prompt_settings
+  - githubaction_avoidprotect
 
