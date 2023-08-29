@@ -1,3 +1,4 @@
 jsonschema
 requests
 sphinx
+sphinx-rtd-theme
