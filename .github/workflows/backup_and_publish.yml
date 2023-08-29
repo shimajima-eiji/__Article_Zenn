@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # 前回のプッシュ履歴を比較するため、全履歴を持つ
 
       - name: Pythonのセットアップ
         uses: actions/setup-python@v2
@@ -31,20 +33,30 @@ jobs:
       - name: Zennへ投稿できるファイル配置に変更
         run: python src/convert_to_zenn_format.py
 
-      - name: pyファイルが更新されていた場合、docs/htmlを最新化するため、前回のデプロイコミット（プッシュ）を取得
-        id: get-last-deploy-commit
-        run: echo "::set-output name=commit::$(git rev-parse HEAD~1)"
-
-      - name: 差分を確認してpy-docstringをhtmlビルドしてホスティングする
+      - name: pyファイルが前回のpush時と比較して書き換わっているようならdocs/htmlを更新する
         run: |
-          CHANGED_FILES=$(git diff --name-only ${{ steps.get-last-deploy-commit.outputs.commit }} ..HEAD)
-          if [[ $CHANGED_FILES == *"src/backup_qiita_articles.py"* ]]; then
+          FILE=src/backup_qiita_articles.py
+          # Get the commit hash of the most recent commit that changed the file
+          LAST_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE)
+
+          # Get the commit hash of the second most recent commit that changed the file
+          PREV_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE~1)
+
+          if [ "$LAST_CHANGE" != "$PREV_CHANGE" ]; then
             pip install pdoc3
-            pdoc src/backup_qiita_articles.py --html -o docs
+            pdoc $FILE --html -o docs
           fi
-          if [[ $CHANGED_FILES == *"src/convert_to_zenn_format.py"* ]]; then
+
+          FILE=src/convert_to_zenn_format.py
+          # Get the commit hash of the most recent commit that changed the file
+          LAST_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE)
+
+          # Get the commit hash of the second most recent commit that changed the file
+          PREV_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE~1)
+
+          if [ "$LAST_CHANGE" != "$PREV_CHANGE" ]; then
             pip install pdoc3
-            pdoc src/convert_to_zenn_format.py --html -o docs
+            pdoc $FILE --html -o docs
           fi
 
       - name: 変更をコミットし、Zennに投稿
