@@ -39,7 +39,7 @@ def main():
 
     qiita_posts = fetch_qiita_posts(args.access_token)
     if qiita_posts is not None:
-        save_to_json(qiita_posts, "qiita_posts.json")
+        save_to_json(qiita_posts, "/src/qiita_posts.json")
         print("Qiita posts saved successfully.")
 
 if __name__ == "__main__":

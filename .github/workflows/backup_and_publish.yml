@@ -34,10 +34,10 @@ jobs:
         run: pip install -r docs/requirements.txt  # pyファイルとsphinx、テーマを含む
 
       - name: Qiita記事をバックアップ
-        run: python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
+        run: python src/backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
 
       - name: Zennへ投稿
-        run: python convert_to_zenn_format.py
+        run: python src/convert_to_zenn_format.py
 
       - name: Sphinxドキュメントをビルド
         run: |
