@@ -21,16 +21,13 @@ jobs:
           python-version: 3.x
 
       - name: 依存関係をインストール
-        run: pip install requests
+        run: pip install -r docs/requirements.txt  # pyファイルとsphinxを含む
 
       - name: Qiita記事をバックアップ
         run: python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
 
       - name: Zennへ投稿
         run: python publish_to_zenn.py
-
-      - name: Sphinxをインストール
-        run: pip install sphinx
 
       - name: Sphinxドキュメントをビルド
         run: |
