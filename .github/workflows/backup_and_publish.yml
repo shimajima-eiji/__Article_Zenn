@@ -20,8 +20,18 @@ jobs:
         with:
           python-version: 3.x
 
+      - name: Pythonの依存関係をキャッシュする
+        id: cache-python-deps
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: 依存関係をインストール
-        run: pip install -r docs/requirements.txt  # pyファイルとsphinxを含む
+        if: steps.cache-python-deps.outputs.cache-hit != 'true'
+        run: pip install -r docs/requirements.txt  # pyファイルとsphinx、テーマを含む
 
       - name: Qiita記事をバックアップ
         run: python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
