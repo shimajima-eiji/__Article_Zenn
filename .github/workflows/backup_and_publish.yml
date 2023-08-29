@@ -37,7 +37,7 @@ jobs:
 
       - name: 差分を確認してpy-docstringをhtmlビルドしてホスティングする
         run: |
-          CHANGED_FILES=$(git diff --name-only ${{ steps.get-last-deploy-commit.outputs.commit }}..HEAD)
+          CHANGED_FILES=$(git diff --name-only ${{ steps.get-last-deploy-commit.outputs.commit }} ..HEAD)
           if [[ $CHANGED_FILES == *"src/backup_qiita_articles.py"* ]]; then
             pip install pdoc3
             pdoc src/backup_qiita_articles.py --html -o docs
