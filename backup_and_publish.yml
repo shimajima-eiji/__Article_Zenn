@@ -1,0 +1,43 @@
+name: Qiita記事のバックアップとZennへの投稿
+
+on:
+  push:  # 動作確認のため、pushで検証する
+    brunch:
+      main
+  schedule:
+    - cron: '0 2 * * *'  # 毎日 2 時に実行
+
+jobs:
+  backup_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v2
+
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # 使用するPythonのバージョンを指定
+
+      - name: 依存関係のインストール
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requests
+
+      - name: Qiita記事のバックアップ
+        run: |
+          python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
+
+      - name: バックアップした記事ファイル(json)をZenn形式に対応したファイル配置を実施
+        run: |
+          python convert_to_zenn_format.py
+
+      - name: 更新をpushする
+        run: |
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name "shimajima-eiji"
+          git add qiita_posts.json
+          git commit -m "Add latest articles" || exit 0
+          git push
+          
