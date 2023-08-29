@@ -10,10 +10,10 @@ def convert_to_zenn_format(qiita_article):
     """
     topics = [tag["name"] for tag in qiita_article["tags"]]
     zenn_article = f"""---
-title: {qiita_article["title"]}
-emoji: 📝
-type: qiita
-topics: [{", ".join([f'"{topic}"' for topic in topics])}]
+title: "{qiita_article['title']}"
+emoji: "📝"
+type: "tech"
+topics: "[{', '.join([f'"{topic}"' for topic in topics])}]"
 published: true
 ---
 
