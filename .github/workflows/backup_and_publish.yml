@@ -20,20 +20,10 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Pythonの依存関係をキャッシュする
-        id: cache-python-deps
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: 依存関係をインストール
-        if: steps.cache-python-deps.outputs.cache-hit != 'true'
+      - name: 依存関係をインストール。キャッシュする案もあったが安定しなかったので廃止
         run: |
           python -m pip install --upgrade pip  # pip自体をアップグレード
-          pip install -r requirements.txt  # pyファイルのみ。pdoc3はコメントアウトのため除く
+          pip install -r requirements.txt  # pyファイルのみ。pdoc3は不要の可能性があるため除く
 
       - name: Qiita記事をバックアップ
         run: python src/backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
