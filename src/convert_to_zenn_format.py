@@ -1,6 +1,5 @@
-import json
 import os
-import shutil
+import json
 
 
 def convert_to_zenn_format(qiita_article):
@@ -31,7 +30,7 @@ https://qiita.com/items/{qiita_article["id"]}
     return zenn_article
 
 
-def load_qiita_posts(filename):
+def load_qiita_articles(filename):
     """
     Qiitaの記事データを読み込む関数
     :param filename: 読み込むファイル名
@@ -56,12 +55,17 @@ def main():
     """
     メイン関数。Qiita記事をZenn形式に変換して保存する
     """
-    qiita_posts = load_qiita_posts("qiita_posts.json")
+    json_path = "qiita_articles.json"  # 削除したいファイルのパス
+    qiita_articles = load_qiita_articles(json_path)
 
-    for qiita_post in qiita_posts:
-        zenn_article = convert_to_zenn_format(qiita_post)
-        file_name = f"articles/{qiita_post['id']}.md"
+    for qiita_article in qiita_articles:
+        zenn_article = convert_to_zenn_format(qiita_article)
+        file_name = f"articles/{qiita_article['id']}.md"
         save_to_file(file_name, zenn_article)
+
+    # ファイルの取り込みが終了したら元ファイルは不要なので削除しておく
+    if os.path.exists(json_path):
+        os.remove(json_path)
 
 
 if __name__ == "__main__":

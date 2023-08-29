@@ -41,10 +41,21 @@ jobs:
       - name: Zennへ投稿できるファイル配置に変更
         run: python src/convert_to_zenn_format.py
 
-      # - name: py-docstringをhtmlビルドしてホスティングする
-      #   run: |
-      #     pdoc src/backup_qiita_articles.py --html -o docs
-      #     pdoc src/convert_to_zenn_format.py --html -o docs
+      - name: pyファイルが更新されていた場合、docs/htmlを最新化するため、前回のデプロイコミット（プッシュ）を取得
+        id: get-last-deploy-commit
+        run: echo "::set-output name=commit::$(git rev-parse HEAD~1)"
+
+      - name: 差分を確認してpy-docstringをhtmlビルドしてホスティングする
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ steps.get-last-deploy-commit.outputs.commit }}..HEAD)
+          if [[ $CHANGED_FILES == *"src/backup_qiita_articles.py"* ]]; then
+            pip install pdoc3
+            pdoc src/backup_qiita_articles.py --html -o docs
+          fi
+          if [[ $CHANGED_FILES == *"src/convert_to_zenn_format.py"* ]]; then
+            pip install pdoc3
+            pdoc src/convert_to_zenn_format.py --html -o docs
+          fi
 
       - name: 変更をコミットし、Zennに投稿
         run: |
