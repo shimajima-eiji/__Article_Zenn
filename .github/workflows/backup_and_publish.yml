@@ -1,9 +1,6 @@
 name: Qiita記事のバックアップ、Zennへの投稿、ドキュメントのビルドとデプロイ
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 0 * * *'  # バックアップと投稿を毎日実行
 

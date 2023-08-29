@@ -2,6 +2,7 @@ import json
 import os
 import shutil
 
+
 def convert_to_zenn_format(qiita_article):
     """
     Qiitaの記事をZennの形式に変換する関数
@@ -29,6 +30,7 @@ https://qiita.com/items/{qiita_article["id"]}
 """
     return zenn_article
 
+
 def load_qiita_posts(filename):
     """
     Qiitaの記事データを読み込む関数
@@ -39,14 +41,6 @@ def load_qiita_posts(filename):
         qiita_posts = json.load(file)
     return qiita_posts
 
-def create_directory(directory_name):
-    """
-    ディレクトリを作成する関数
-    :param directory_name: 作成するディレクトリ名
-    """
-    if os.path.exists(directory_name):
-        shutil.rmtree(directory_name)
-    os.makedirs(directory_name)
 
 def save_to_file(file_name, content):
     """
@@ -57,17 +51,18 @@ def save_to_file(file_name, content):
     with open(file_name, "w") as file:
         file.write(content)
 
+
 def main():
     """
     メイン関数。Qiita記事をZenn形式に変換して保存する
     """
     qiita_posts = load_qiita_posts("qiita_posts.json")
-    create_directory("articles")
-    
+
     for qiita_post in qiita_posts:
         zenn_article = convert_to_zenn_format(qiita_post)
-        file_name = f"articles/{qiita_post['title']}.md"
+        file_name = f"articles/{qiita_post['id']}.md"
         save_to_file(file_name, zenn_article)
+
 
 if __name__ == "__main__":
     main()
