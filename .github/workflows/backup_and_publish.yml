@@ -1,4 +1,4 @@
-name: Qiita記事のバックアップ、Zennへの投稿、ドキュメントのビルドとデプロイ
+name: Qiita記事のバックアップ、Zennへの投稿（デプロイ）
 
 on:
   push:
@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # 前回のプッシュ履歴を比較するため、全履歴を持つ
 
       - name: Pythonのセットアップ
         uses: actions/setup-python@v2
@@ -25,39 +23,13 @@ jobs:
       - name: 依存関係をインストール。キャッシュする案もあったが安定しなかったので廃止
         run: |
           python -m pip install --upgrade pip  # pip自体をアップグレード
-          pip install -r requirements.txt  # pyファイルのみ。pdoc3は不要の可能性があるため除く
+          pip install -r requirements.txt  # pyファイルのみ。pdoc3はpushをトリガーにしたCIで実行させる
 
       - name: Qiita記事をバックアップ
         run: python src/backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
 
       - name: Zennへ投稿できるファイル配置に変更
         run: python src/convert_to_zenn_format.py
-
-      - name: pyファイルが前回のpush時と比較して書き換わっているようならdocs/htmlを更新する
-        run: |
-          FILE=src/backup_qiita_articles.py
-          # Get the commit hash of the most recent commit that changed the file
-          LAST_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE)
-
-          # Get the commit hash of the second most recent commit that changed the file
-          PREV_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE~1)
-
-          if [ "$LAST_CHANGE" != "$PREV_CHANGE" ]; then
-            pip install pdoc3
-            pdoc $FILE --html -o docs
-          fi
-
-          FILE=src/convert_to_zenn_format.py
-          # Get the commit hash of the most recent commit that changed the file
-          LAST_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE)
-
-          # Get the commit hash of the second most recent commit that changed the file
-          PREV_CHANGE=$(git log -1 --format=format:%H --full-diff $FILE~1)
-
-          if [ "$LAST_CHANGE" != "$PREV_CHANGE" ]; then
-            pip install pdoc3
-            pdoc $FILE --html -o docs
-          fi
 
       - name: 変更をコミットし、Zennに投稿
         run: |
