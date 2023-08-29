@@ -1,0 +1,44 @@
+name: Qiita記事のバックアップ、Zennへの投稿、ドキュメントのビルドとデプロイ
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'  # バックアップと投稿を毎日実行
+
+jobs:
+  バックアップと投稿:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v2
+
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: 依存関係をインストール
+        run: pip install requests
+
+      - name: Qiita記事をバックアップ
+        run: python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
+
+      - name: Zennへ投稿
+        run: python publish_to_zenn.py
+
+      - name: Sphinxをインストール
+        run: pip install sphinx
+
+      - name: Sphinxドキュメントをビルド
+        run: |
+          cd docs  # ドキュメントソースがあるディレクトリに移動
+          make html  # SphinxドキュメントをHTMLにビルド
+
+      - name: SphinxドキュメントをGitHub Pagesにデプロイ
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build/html  # ビルドされたHTMLを指定
