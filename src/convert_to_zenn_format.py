@@ -61,7 +61,7 @@ def main():
     """
     メイン関数。Qiita記事をZenn形式に変換して保存する
     """
-    qiita_posts = load_qiita_posts("/src/qiita_posts.json")
+    qiita_posts = load_qiita_posts("qiita_posts.json")
     create_directory("articles")
     
     for qiita_post in qiita_posts:
