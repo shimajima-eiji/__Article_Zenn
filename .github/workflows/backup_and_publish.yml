@@ -31,21 +31,23 @@ jobs:
 
       - name: 依存関係をインストール
         if: steps.cache-python-deps.outputs.cache-hit != 'true'
-        run: pip install -r docs/requirements.txt  # pyファイルとsphinx、テーマを含む
+        run: pip install -r requirements.txt  # pyファイルとsphinx、テーマを含む
 
       - name: Qiita記事をバックアップ
         run: python src/backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
 
-      - name: Zennへ投稿
+      - name: Zennへ投稿できるファイル配置に変更
         run: python src/convert_to_zenn_format.py
 
-      - name: Sphinxドキュメントをビルド
-        run: |
-          cd docs  # ドキュメントソースがあるディレクトリに移動
-          make html  # SphinxドキュメントをHTMLにビルド
+      # - name: py-docstringをhtmlビルドしてホスティングする
+      #   run: |
+      #     pdoc src/backup_qiita_articles.py --html -o docs
+      #     pdoc src/convert_to_zenn_format.py --html -o docs
 
-      - name: SphinxドキュメントをGitHub Pagesにデプロイ
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build/html  # ビルドされたHTMLを指定
+      - name: 変更をコミットし、Zennに投稿
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "backup_and_publish"
+          git push origin main
