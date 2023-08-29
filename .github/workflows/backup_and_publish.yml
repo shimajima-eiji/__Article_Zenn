@@ -27,7 +27,7 @@ jobs:
         run: python backup_qiita_articles.py --access-token ${{ secrets.QIITA_API_TOKEN }}
 
       - name: Zennへ投稿
-        run: python publish_to_zenn.py
+        run: python convert_to_zenn_format.py
 
       - name: Sphinxドキュメントをビルド
         run: |
