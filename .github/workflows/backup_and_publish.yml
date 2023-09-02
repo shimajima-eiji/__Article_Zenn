@@ -2,7 +2,7 @@ name: Qiita記事のバックアップ、Zennへの投稿（デプロイ）
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # バックアップと投稿を毎日実行
+    - cron: '0 9 * * *'  # UTCのため、JST0時に読み替えて実行
 
 jobs:
   backup_and_publish:
