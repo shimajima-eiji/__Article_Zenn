@@ -1,9 +1,6 @@
 name: Qiita記事のバックアップ、Zennへの投稿（デプロイ）
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 0 * * *'  # バックアップと投稿を毎日実行
 
@@ -31,10 +28,13 @@ jobs:
       - name: Zennへ投稿できるファイル配置に変更
         run: python src/convert_to_zenn_format.py
 
-      - name: 変更をコミットし、Zennに投稿
+      - name: 変更をコミットし、Zennに投稿。変更がなければ何もしない
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "backup_and_publish"
-          git push origin main
+          if [[ $(git status --porcelain) ]]; then
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git add .
+            git commit -m "backup_and_publish"
+            git push origin main
+          fi
+          
