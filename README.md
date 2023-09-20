@@ -1,5 +1,5 @@
 # 目的
-1. Qiitaの記事をバックアップ（新規投稿後の更新にも対応）
+1. Qiitaの記事をバックアップ（新規投稿後の更新にも対応）→[似たようなことをやっているリポジトリ](https://github.com/shimajima-eiji/__Backup_Qiita)
 2. Zennに投稿する
 
 # アカウント
